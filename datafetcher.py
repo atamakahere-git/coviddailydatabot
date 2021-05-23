@@ -20,7 +20,10 @@ def get_latest_data() -> str:
     if data and prv_data:
         data_attr = data.split(',')
         prv_data_attr = prv_data.split(',')
-        change = (int(prv_data_attr[2]) - int(data_attr[2])) * 100 / int(prv_data_attr[2])
+        r_cases = int(data_attr[2])
+        p_cases = int(prv_data_attr[2])
+        print(p_cases, r_cases)
+        change = (r_cases-p_cases)*100/p_cases
         return f"Date : {data_attr[0]}\n" \
                f"Confirmed cases : {data_attr[2]}\n" \
                f"Recovered : {data_attr[4]}\n" \

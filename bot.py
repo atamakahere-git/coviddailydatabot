@@ -38,6 +38,11 @@ def vaccine(update: Update, context: CallbackContext) -> None:
     update.message.reply_text("Not working right now, will be implemented later!")
 
 
+def about(update: Update, context: CallbackContext):
+    update.message.reply_text("Made by Tanveer Raza\n"
+                              "Visit my github : github.com/tanveerraza789")
+
+
 def main() -> None:
     updater = None
     try:
@@ -51,6 +56,7 @@ def main() -> None:
     updater.dispatcher.add_handler(CommandHandler('yesterday', yesterday, run_async=True))
     updater.dispatcher.add_handler(CommandHandler('latest', yesterday, run_async=True))
     updater.dispatcher.add_handler(CommandHandler('all', all_data, run_async=True))
+    updater.dispatcher.add_handler(CommandHandler('about', about, run_async=True))
     # Pooling method to test on local machine
     if POOLING:
         updater.start_polling()
